@@ -4,7 +4,7 @@ import { validateCustomer } from "../middleware/customersValidation.js";
 import { bodyContentBlocker } from "../middleware/bodyContentBlocker.js";
 import {
   createCustomerController,
-  //getAllCustomersController,
+  getAllCustomersController,
   getCustomerByIdController,
   updateCustomerController,
   deleteCustomerController,
@@ -13,22 +13,22 @@ import { preventGuest } from "../middleware/preventGuest.js";
 
 const router = Router();
 
-// URL for CRUD operations: localhost:3000/api/customers
+// URL för CRUD-operationer: localhost:3000/api/customers
 
-// POST route for adding a new customer
+// POST-route för att lägga till ny kund
 router.post("/", validateCustomer, createCustomerController);
 
-/* // GET route for fetching all customers
+// GET-route för admin att hämta alla kunder         ***** - ska ha middleware för ADMIN-kontrol!!!  *****
 router.get("/", bodyContentBlocker, getAllCustomersController);
- */
+ 
 
-// GET route for customer profile
+// GET-route för kund-profil
 router.get("/profile", bodyContentBlocker, getCustomerByIdController);
 
-// PUT route for updating customer info
+// PUT-route för att uppdatera kund-info
 router.put("/", preventGuest, validateCustomer, updateCustomerController);
 
-// DELETE route for deleting customer
+// DELETE-route för att radera kund
 router.delete("/", preventGuest, bodyContentBlocker, deleteCustomerController);
 
 export default router;

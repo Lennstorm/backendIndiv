@@ -2,18 +2,18 @@ import express from "express";
 import { bodyContentBlocker } from "../middleware/bodyContentBlocker.js";
 import {
   getOrderHistory,
-  //getAllOrderHistoriesHandler,
+  getAllOrderHistoriesHandler,
 } from "../controllers/orderHistoryController.js";
 import { preventGuest } from "../middleware/preventGuest.js";
 
 const router = express.Router();
 
-// URL for CRUD operations: localhost:3000/api/order-history
+// URL för CRUD-operationer: localhost:3000/api/order-history
 
-// GET all order histories
-//router.get("/all", bodyContentBlocker, getAllOrderHistoriesHandler);
+// GET-route för alla order histories         ***** - ska ha middleware för ADMIN-kontrol!!!  *****
+router.get("/all", bodyContentBlocker, getAllOrderHistoriesHandler);
 
-// GET order history
+// GET-route för order history
 router.get("/", preventGuest, bodyContentBlocker, getOrderHistory);
 
 export default router;

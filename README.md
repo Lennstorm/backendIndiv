@@ -1,6 +1,7 @@
 # API Documentation
 
-When starting the server with no db files, the products database will autofill. The database for customers will insert a guest user thats logged in by default.
+När servern startas utan db-filer, kommer products-databasen autofyllas.
+Databasen för customers fylls med en guest-user, som är inloggad per default, och en admin.
 
 The guest user is limited to some operations to limit potential bugs. The Guest cannot log itself out, update or delete itself.
 
@@ -11,7 +12,7 @@ You can create a new customer and login on that account to access more API reque
 
 **POST** new customer http://localhost:3000/customers
 
-You can copy and paste the json below to create a new customer. Change whatever you like and see what works and what doesn't.
+Nedanstående json kan kopieras för att skapa ny kund.
 
 ```json
 {
@@ -27,7 +28,7 @@ You can copy and paste the json below to create a new customer. Change whatever 
 
 **PUT** Update logged in customer information. Guests can't update the guest account. http://localhost:3000/customers
 
-Copy paste this json into the request body to update user
+Nedanstående json kan kopieras och klistras in i body för att uppdatera kund/user
 
 ```json
 {
@@ -86,7 +87,3 @@ Use the order ID provided in the response from the POST operation.
 ## ABOUT
 
 **GET** about information http://localhost:3000/about
-
-
-
-

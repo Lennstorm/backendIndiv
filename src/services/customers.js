@@ -7,6 +7,13 @@ const defaultGuest = {
   loggedIn: true,
   _id: "guestintest",
 };
+const defaultAdmin = {
+  firstName: "Idi",
+  lastname: "Admin",
+  loggedIn: false,
+  admin: true,
+  _id: "idiadmin"
+}
 
 // Initialize database with default guest
 export async function initializeCustomerDatabase() {
@@ -16,6 +23,7 @@ export async function initializeCustomerDatabase() {
     if (existingCustomers.length === 0) {
       // If no existing customers, insert default guest
       await database.insert(defaultGuest);
+      await database.insert(defaultAdmin);
     }
   } catch (error) {
     console.error(`Error initializing database: ${error.message}`);
