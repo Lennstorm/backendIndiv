@@ -10,6 +10,7 @@ import {
   deleteCustomerController,
 } from "../controllers/customersController.js";
 import { preventGuest } from "../middleware/preventGuest.js";
+import { allowAdmin } from "../middleware/allowAdmin.js";
 
 const router = Router();
 
@@ -18,8 +19,8 @@ const router = Router();
 // POST-route för att lägga till ny kund
 router.post("/", validateCustomer, createCustomerController);
 
-// GET-route för admin att hämta alla kunder         ***** - ska ha middleware för ADMIN-kontrol!!!  *****
-router.get("/", bodyContentBlocker, getAllCustomersController);
+// GET-route för admin att hämta alla kunder. Inklusive allowAdmin - kontroll för att bara tillåta admin.
+router.get("/", allowAdmin, bodyContentBlocker, getAllCustomersController);
  
 
 // GET-route för kund-profil
