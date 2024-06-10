@@ -1,7 +1,6 @@
-{"title":"Caffè Doppio","desc":"En underbar dubbel espresso!","price":49,"createdAt":"2024-06-10 12:48:33","_id":"CSufjETsBrbLkEI6"}
-{"title":"Bryggkaffe","desc":"Bryggt på månadens bönor.","price":39,"createdAt":"2024-06-10 12:48:33","_id":"U2kvIcdZH1jx1YNE"}
-{"title":"Cortado","desc":"Eldig spansk härta-härta.","price":39,"createdAt":"2024-06-10 12:48:33","_id":"WCv0k3IlfQ6IBVZY"}
-{"title":"Latte Macchiato","desc":"Skummande mjölkig, med en touch av espresso.","price":49,"createdAt":"2024-06-10 12:48:33","_id":"X28GCEodRrpvyJKK"}
-{"title":"Cappuccino","desc":"Med härligt skummande mjölk.","price":49,"createdAt":"2024-06-10 12:48:33","_id":"eDHDE5ahALNKX9tK"}
-{"title":"Kaffe Latte","desc":"Len och värmande god.","price":54,"createdAt":"2024-06-10 12:48:33","_id":"yX0Oxnp95V3VRVM2"}
-{"title":"Kanylballe","desc":"Direkt från grenen.","price":"73","createdAt":"2024-06-10 12:48:33","_id":"WCv0k3IlfQ6IBVZY","updatedAt":"2024-06-10 12:53:37"}
+{"title":"Cortado","desc":"Eldig spansk härta-härta.","price":39,"createdAt":"2024-06-10 13:43:00","_id":"62w8aYVXe5Gj2yAB"}
+{"title":"Cappuccino","desc":"Med härligt skummande mjölk.","price":49,"createdAt":"2024-06-10 13:43:00","_id":"CeyrWux0BS2uOqUo"}
+{"title":"Caffè Doppio","desc":"En underbar dubbel espresso!","price":49,"createdAt":"2024-06-10 13:43:00","_id":"LdscCKjQYdncBqaU"}
+{"title":"Latte Macchiato","desc":"Skummande mjölkig, med en touch av espresso.","price":49,"createdAt":"2024-06-10 13:43:00","_id":"mUWt6teKLgjZVwkZ"}
+{"title":"Bryggkaffe","desc":"Bryggt på månadens bönor.","price":39,"createdAt":"2024-06-10 13:43:00","_id":"qfnrVOShyADMDnnX"}
+{"title":"Kaffe Latte","desc":"Len och värmande god.","price":54,"createdAt":"2024-06-10 13:43:00","_id":"rCuCIWuYk9PpKLrj"}

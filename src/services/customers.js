@@ -4,13 +4,16 @@ import { updateCustomerLoggedInStatus } from "../utils/updateLoggedInStatus.js";
 const database = new nedb({ filename: "customers.db", autoload: true });
 const defaultGuest = {
   firstName: "Guest",
-  loggedIn: false,
+  loggedIn: true,
   _id: "guestintest",
 };
 const defaultAdmin = {
   firstName: "Idi",
   lastname: "Admin",
-  loggedIn: true,
+  email: "idi@admin.nu",
+  password: "adminn",
+  phoneNumber: "88850",
+  loggedIn: false,
   admin: true,
   _id: "idiadmin"
 }

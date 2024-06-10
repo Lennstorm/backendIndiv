@@ -3,9 +3,10 @@
 När servern startas utan db-filer, kommer products-databasen autofyllas.
 Databasen för customers fylls med en guest-user, som är inloggad per default, och en admin.
 
-The guest user is limited to some operations to limit potential bugs. The Guest cannot log itself out, update or delete itself.
+Gäst-användare är begränsad till vissa operationer för att begränsa potentiella buggar.
+Guest kan inte logga ut, uppdatera eller radera konto.
 
-You can create a new customer and login on that account to access more API requests.
+För att komma åt fler API-requests kan man skapa ett nytt konto och logga in.
 
 
 ## CUSTOMERS
@@ -24,9 +25,9 @@ Nedanstående json kan kopieras för att skapa ny kund.
 }
 ```
 
-**GET** Profile page for logged in customer. http://localhost:3000/customers/profile  
+**GET** Profilsida för inloggad kund. http://localhost:3000/customers/profile  
 
-**PUT** Update logged in customer information. Guests can't update the guest account. http://localhost:3000/customers
+**PUT** Uppdatera inloggad kunds information. Guest kan inte uppdatera guest-kontot. http://localhost:3000/customers
 
 Nedanstående json kan kopieras och klistras in i body för att uppdatera kund/user
 
@@ -40,13 +41,14 @@ Nedanstående json kan kopieras och klistras in i body för att uppdatera kund/u
 }
 ```
 
-**DELETE** Delete logged in customer. Guests can't delete the guest account http://localhost:3000/customers
+**DELETE** Radera inloggad kund. Guest kan inte radera guest-konto! http://localhost:3000/customers
 
 ## LOGIN
 
-**POST** login user http://localhost:3000/login
+**POST** logga in användare http://localhost:3000/login
 
-Send valid json data in the request body. A user logs in by entering valid email and phone number values. Below is the test users email and password in json.
+Skicka giltig json-data i body. Användare loggar in med giltig email eller telefonnummer.
+Nedan test-users email och lösenord som json.
 
 ```json
 {
@@ -57,33 +59,33 @@ Send valid json data in the request body. A user logs in by entering valid email
 
 ## LOGOUT
 
-**POST** logout user http://localhost:3000/logout
+**POST** logga ut användare. Loggar automatiskt in guest http://localhost:3000/logout
 
 ## PRODUCTS
 
-**GET** all products http://localhost:3000/products
+**GET** Hämta alla products http://localhost:3000/products
 
 ## CART
 
-**GET** cart http://localhost:3000/cart
+**GET** hämta cart http://localhost:3000/cart
 
-**POST** Add product to logged in customer cart using product _id as route parameter http://localhost:3000/cart/:productId
+**POST** Addera produkt till inloggad kunds kundvagn mha product _id som route-parameter http://localhost:3000/cart/:productId
 
-**DELETE** product from customer cart using product _id as route parameter http://localhost:3000/cart/:productID
+**DELETE** ta bort produkt från kundvagn mha product _id som route-parameter http://localhost:3000/cart/:productID
 
 ## ORDER
 
-**POST** new order. This will empty the customer cart and send the cart items into the customers unique order history object in the orderHistory.db http://localhost:3000/orders
+**POST** ny order. Detta kommer tömma kundvagnen och skicka innehållet till kundens unika orderhistorik-object i orderHistory.db http://localhost:3000/orders
 
-**GET** specific order to see delivery time and other info. http://localhost:3000/orders/:orderId
-Use the order ID provided in the response from the POST operation.
+**GET** hämta specifik order mha ordernr för att se leveranstid och övrig info. http://localhost:3000/orders/:orderId
+Använd order-ID som returneras i svaret från POST-operationen.
 
 
 ## ORDER HISTORY 
 
-**GET** specific customer order history http://localhost:3000/order-history
+**GET** hämta specifik kunds orderhistorik http://localhost:3000/order-history
 
 
 ## ABOUT
 
-**GET** about information http://localhost:3000/about
+**GET** hämta information om företaget http://localhost:3000/about
