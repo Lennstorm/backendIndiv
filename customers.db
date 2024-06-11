@@ -1,8 +1,4 @@
-{"firstName":"Guest","loggedIn":true,"_id":"guestintest"}
-{"firstName":"Idi","lastname":"Admin","email":"idi@admin.nu","password":"adminn","phoneNumber":"88850","loggedIn":false,"admin":true,"_id":"idiadmin"}
 {"firstName":"Guest","loggedIn":false,"_id":"guestintest"}
 {"firstName":"Idi","lastname":"Admin","email":"idi@admin.nu","password":"adminn","phoneNumber":"88850","loggedIn":true,"admin":true,"_id":"idiadmin"}
-{"firstName":"Idi","lastname":"Admin","email":"idi@admin.nu","password":"adminn","phoneNumber":"88850","loggedIn":false,"admin":true,"_id":"idiadmin"}
-{"firstName":"Idi","lastname":"Admin","email":"idi@admin.nu","password":"adminn","phoneNumber":"88850","loggedIn":true,"admin":true,"_id":"idiadmin"}
-{"firstName":"Idi","lastname":"Admin","email":"idi@admin.nu","password":"adminn","phoneNumber":"88850","loggedIn":false,"admin":true,"_id":"idiadmin"}
+{"$$deleted":true,"_id":"idiadmin"}
 {"firstName":"Guest","loggedIn":true,"_id":"guestintest"}

@@ -1,6 +1,11 @@
-{"title":"Cortado","desc":"Eldig spansk härta-härta.","price":39,"createdAt":"2024-06-10 13:43:00","_id":"62w8aYVXe5Gj2yAB"}
-{"title":"Cappuccino","desc":"Med härligt skummande mjölk.","price":49,"createdAt":"2024-06-10 13:43:00","_id":"CeyrWux0BS2uOqUo"}
-{"title":"Caffè Doppio","desc":"En underbar dubbel espresso!","price":49,"createdAt":"2024-06-10 13:43:00","_id":"LdscCKjQYdncBqaU"}
-{"title":"Latte Macchiato","desc":"Skummande mjölkig, med en touch av espresso.","price":49,"createdAt":"2024-06-10 13:43:00","_id":"mUWt6teKLgjZVwkZ"}
-{"title":"Bryggkaffe","desc":"Bryggt på månadens bönor.","price":39,"createdAt":"2024-06-10 13:43:00","_id":"qfnrVOShyADMDnnX"}
-{"title":"Kaffe Latte","desc":"Len och värmande god.","price":54,"createdAt":"2024-06-10 13:43:00","_id":"rCuCIWuYk9PpKLrj"}
+{"title":"Cortado","desc":"River röven av dig direkt.","price":666,"createdAt":"2024-06-11 11:55:42","_id":"QtYX7FrVKmffg9cb","modifiedAt":"2024-06-11 14:05:55"}
+{"title":"Cortado","desc":"Eldig spansk härta-härta.","price":39,"createdAt":"2024-06-11 11:55:42","_id":"VAJWVfw7lECMxWiQ"}
+{"title":"Latte Macchiato","desc":"Skummande mjölkig, med en touch av espresso.","price":49,"createdAt":"2024-06-11 11:55:42","_id":"YaNCGZ9xixA3m3qa"}
+{"title":"Caffè Doppio","desc":"En underbar dubbel espresso!","price":49,"createdAt":"2024-06-11 11:55:42","_id":"l2iZ4IgHGRVarNhF"}
+{"title":"Cappuccino","desc":"Med härligt skummande mjölk.","price":49,"createdAt":"2024-06-11 11:55:42","_id":"obC93y1kWa43dPQB"}
+{"title":"Kaffe Latte","desc":"Len och värmande god.","price":54,"createdAt":"2024-06-11 11:55:42","_id":"y5kHyx40DX14uyUv"}
+{"$$deleted":true,"_id":"QtYX7FrVKmffg9cb"}
+{"$$deleted":true,"_id":"VAJWVfw7lECMxWiQ"}
+{"$$deleted":true,"_id":"YaNCGZ9xixA3m3qa"}
+{"$$deleted":true,"_id":"l2iZ4IgHGRVarNhF"}
+{"$$deleted":true,"_id":"obC93y1kWa43dPQB"}

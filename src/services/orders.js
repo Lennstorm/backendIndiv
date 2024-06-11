@@ -14,16 +14,20 @@ const createOrder = async (userId, cart, totalPrice) => {
     const customer = await getCustomerById(userId); // Check if the user exists
 
     const prelTime = new Date();
-    const prelDelTime = new Date(prelTime.getTime() + 20 * 60000); // 20 minutes from placed order
+    const prelDelTime = new Date(prelTime.getTime() + 20 * 60000); // 20 minuter efter orderläggning
+   
 
     function formatDate(date) {
+
+      const utcTime = new Date(date.getTime() + 2 * 60 * 60 * 1000); // Lägg till 2 timmar i millisekunder
+
       // Get the components of the date
-      const year = date.getUTCFullYear();
-      const month = String(date.getUTCMonth() + 1).padStart(2, "0");
-      const day = String(date.getUTCDate()).padStart(2, "0");
-      const hours = String(date.getUTCHours()).padStart(2, "0");
-      const minutes = String(date.getUTCMinutes()).padStart(2, "0");
-      const seconds = String(date.getUTCSeconds()).padStart(2, "0");
+      const year = utcTime.getUTCFullYear();
+      const month = String(utcTime.getUTCMonth() + 1).padStart(2, "0");
+      const day = String(utcTime.getUTCDate()).padStart(2, "0");
+      const hours = String(utcTime.getUTCHours()).padStart(2, "0");
+      const minutes = String(utcTime.getUTCMinutes()).padStart(2, "0");
+      const seconds = String(utcTime.getUTCSeconds()).padStart(2, "0");
 
       // Format the date as desired
       return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;

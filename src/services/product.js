@@ -36,12 +36,15 @@ const defaultProducts = [
 ];
 
 function formatDate(date) {
-  const year = date.getUTCFullYear();
-  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
-  const day = String(date.getUTCDate()).padStart(2, "0");
-  const hours = String(date.getUTCHours()).padStart(2, "0");
-  const minutes = String(date.getUTCMinutes()).padStart(2, "0");
-  const seconds = String(date.getUTCSeconds()).padStart(2, "0");
+  const offset = date.getTimezoneOffset() * 60000;
+  const localDate = new Date(date.getTime() - offset);
+
+  const year = localDate.getFullYear();
+  const month = String(localDate.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(localDate.getUTCDate()).padStart(2, "0");
+  const hours = String(localDate.getUTCHours()).padStart(2, "0");
+  const minutes = String(localDate.getUTCMinutes()).padStart(2, "0");
+  const seconds = String(localDate.getUTCSeconds()).padStart(2, "0");
 
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
@@ -89,7 +92,7 @@ async function updateProduct(id, updatedProduct) {
     }
 
     const currentTime = formatDate(new Date());
-    const prodToUpdate = { ...updatedProduct, updatedAt: currentTime };
+    const prodToUpdate = { ...updatedProduct, modifiedAt: currentTime };
 
     const result = await database.update(
       { _id: product._id },
