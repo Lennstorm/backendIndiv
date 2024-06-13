@@ -10,7 +10,7 @@ export async function validateCampProds(req, res, next) {
         for (const productId of products) {
             const product = await getProductById(productId);
             if (!product) {
-                return res.status(400).json({ message: "Product not founded" });
+                return res.status(400).json({ message: "En eller flera produkter existerar inte. Kontrollera produkter!" });
             }
         }
         next();
