@@ -20,6 +20,9 @@ router.post("/", allowAdmin, validateCampProds, async (req, res) => {
 router.get("/", async (req,res) => {
     try {
         const campaigns = await getAllCampaigns();
+        if (campaigns.length === 0) {
+            return res.status(200).json({ message: "Inga kampanjer finns för tillfället." });
+        }
         res.status(200).json(campaigns);
     }   catch (error) {
         res.status(500).json({ message: "Internt serverfel" });

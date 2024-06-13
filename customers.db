@@ -1,2 +1,3 @@
+{"firstName":"johan","lastName":"hojansson","email":"jojan@hossn.com","password":"krisen","phoneNumber":"101660010011","loggedIn":true,"_id":"BkHrSQrWa5Rt1D0c"}
 {"firstName":"Guest","loggedIn":false,"_id":"guestintest"}
-{"firstName":"Idi","lastname":"Admin","email":"idi@admin.nu","password":"adminn","phoneNumber":"88850","loggedIn":true,"admin":true,"_id":"idiadmin"}
+{"firstName":"Idi","lastname":"Admin","email":"idi@admin.nu","password":"adminn","phoneNumber":"88850","loggedIn":false,"admin":true,"_id":"idiadmin"}
