@@ -9,8 +9,9 @@ Guest kan inte logga ut, uppdatera eller radera konto.
 För att komma åt fler API-requests kan man skapa ett nytt konto och logga in.
 
 ---
+  
 ## KUNDER / ANVÄNDARE
-
+  
 ### Skapa kund
 
 **Beskrivning** 
@@ -32,7 +33,7 @@ POST http://localhost:3000/customers
 	"phoneNumber": "101010010011"
 }
 ```
-
+  
 ### Hämta profilsida
 
 **Beskrivning**  
@@ -40,7 +41,7 @@ Hämtar profilsida med all lagrad info om inloggad kund.
 
 **URL** 
 GET http://localhost:3000/customers/profile  
-
+  
 ### Uppdatera kund
 
 **Beskrivning**  
@@ -60,7 +61,7 @@ Guest kan inte uppdatera guest-kontot.
 	"phoneNumber": "000111000"
 }
 ```
-
+  
 ### Radera kund
 **Beskrivning**  
 Raderar inloggad kund från databasen.  
@@ -69,8 +70,9 @@ Guest kan inte radera guest-konto!
 **URL** 
 DELETE http://localhost:3000/customers
 
+  
 ## LOGIN/LOGOUT
-
+  
 ### Logga in
 
 **Beskrivning**  
@@ -89,7 +91,7 @@ POST http://localhost:3000/login
 }
 ```
 
-
+  
 ###  LOGOUT
 
 **Beskrivning**  
@@ -99,8 +101,9 @@ Loggar automatiskt in guest.
 **URL** 
 POST http://localhost:3000/logout
 
+  
 ## PRODUCTS
-
+  
 ### Hämta produkter
 **Beskrivning**  
 Hämtar en lista över alla produkter i databasen.  
@@ -108,8 +111,9 @@ Hämtar en lista över alla produkter i databasen.
 **URL** 
 GET http://localhost:3000/products
 
+  
 ## Kundvagn
-
+  
 ### Hämta kundvagn  
 
 **Beskrivning**  
@@ -119,7 +123,7 @@ Returnerar "Din kundvagn är tom" om inga produkter lagts till.
 
 **URL** 
 GET http://localhost:3000/cart
-
+  
 ### Lägg till produkt  
 
 **Beskrivning**  
@@ -140,8 +144,9 @@ DELETE http://localhost:3000/cart/:productID
 **Query-Parameter**
 + product_id
 
+  
 ## ORDER
-
+  
 ### Skapa order
 **Beskrivning**  
 Skapar ny order.  
@@ -151,7 +156,7 @@ Returnerar "Cart is empty" om inga varor finns att skicka.
 **URL** 
 POST http://localhost:3000/orders
 
-
+  
 ### Hämta order
 
 **Beskrivning**  
@@ -163,10 +168,9 @@ GET http://localhost:3000/orders/:orderId
 
 **Query-Parameter**
 + Order-ID som returneras i svaret från POST-operationen.  
-
-
+  
 ## ORDER HISTORY 
-
+  
 ### Hämta historik
 
 **Beskrivning**  
@@ -176,7 +180,7 @@ Guest kan inte göra detta, och får felmeddelande "Guests cannot execute this o
 
 **URL** 
 GET http://localhost:3000/order-history
-
+  
 ### Hämta all historik
 
 **Beskrivning**  
@@ -187,19 +191,18 @@ Guest kan inte göra detta, och får felmeddelande "Guests cannot execute this o
 
 **URL** 
 GET localhost:3000/order-history/all
-
+  
 ## ABOUT
-
+  
 ### Hämta företagsinfo
 
 **Beskrivning**  
 Hämtar information om företaget och returnerar data med en presentation av företaget.  
 
 **URL** 
-GET http://localhost:3000/about
+GET http://localhost:3000/about  
 
-
-
+  
 ## Funktioner tillagda för individuell uppgift:  
 /middleware/allowAdmin.js  
 /services/campaign.js  
@@ -208,17 +211,18 @@ GET http://localhost:3000/about
 
 /cart.js modifierad för att ta hänsyn till kampanjer.  
 Kampanjrouter tillagd i app.js  
-
-**Anrop individuell uppgift:**  
-
-### Hämta kampanjer
+  
+## Anrop individuell uppgift:
+  
+### Hämta kampanjer  
 
 **Beskrivning**  
 Hämtar de kampanjer som finns och returnerar dessa med information om vilka produkter som ingår och till vilket pris.
-Om inga kampanjer finns inlagda returneras "message": "Inga kampanjer finns för tillfället."
-**URL** 
-GET http://localhost:3000/campaigns  
+Om inga kampanjer finns inlagda returneras "message": "Inga kampanjer finns för tillfället."  
 
+**URL**  
+GET http://localhost:3000/campaigns  
+  
 ### Lägg till kampanj
 
 **Beskrivning**  
@@ -234,7 +238,7 @@ POST http://localhost:3000/campaigns
   "products": ["0EGzWoJ0NqKNvMH9", "JExup8MJ0kTTKHZ4"],
   "packagePrice": 10
 }
-
+  
 ### Uppdatera kampanj  
 
 **Beskrivning**  
@@ -243,22 +247,24 @@ Kan endas utföras av admin.
 Vanlig användare och guest får felmeddelande "Only Admin can execute this operation"  
 Lägg in kampanjens id som parameter och produkter samt paketpris som json  
 
-**URL** 
+**URL**  
 PUT http://localhost:3000/campaigns/:id  
 
 **BODY** 
 {
   "products": ["0EGzWoJ0NqKNvMH9", "JExup8MJ0kTTKHZ4"],
   "packagePrice": 10
-}
+}  
 
 **Query-Parameter**
 + Kampanj-ID som returneras i svaret från POST-operationen.  
-
+  
+### Ta bort kampanj  
 **Beskrivning**  
 Ta bort en kampanj med kampanjens id som parameter.  
 Kan endas utföras av admin.  
 Vanlig användare och guest får felmeddelande "Only Admin can execute this operation"  
+
 **URL** 
 DELETE http://localhost:3000/campaigns/:id  
 
