@@ -1,10 +1,10 @@
 # API Documentation
 
-När servern startas utan db-filer, kommer products-databasen autofyllas.
-Databasen för customers fylls med en guest-user, som är inloggad per default, och en admin.
+När servern startas utan db-filer, kommer products-databasen autofyllas.  
+Databasen för customers fylls med en guest-user, som är inloggad per default, och en admin.  
 
-Gäst-användare är begränsad till vissa operationer för att begränsa potentiella buggar.
-Guest kan inte logga ut, uppdatera eller radera konto.
+Gäst-användare är begränsad till vissa operationer för att begränsa potentiella buggar.  
+Guest kan inte logga ut, uppdatera eller radera konto.  
 
 För att komma åt fler API-requests kan man skapa ett nytt konto och logga in.
 
@@ -92,36 +92,36 @@ Använd order-ID som returneras i svaret från POST-operationen.
 
 
 
-## Funktioner tillagda för individuell uppgift:
-/middleware/allowAdmin.js
-/services/campaign.js
-/middleware/validateCampProds.js
-/routes/campaigns.js
+## Funktioner tillagda för individuell uppgift:  
+/middleware/allowAdmin.js  
+/services/campaign.js  
+/middleware/validateCampProds.js  
+/routes/campaigns.js  
 
-/cart.js modifierad för att ta hänsyn till kampanjer.
-Kampanjrouter tillagd i app.js
+/cart.js modifierad för att ta hänsyn till kampanjer.  
+Kampanjrouter tillagd i app.js  
 
-**Nya anrop:**
+**Nya anrop:**  
 
-**GET** hämta alla kampanjer http://localhost:3000/campaigns
+**GET** hämta alla kampanjer http://localhost:3000/campaigns  
 
-**POST** lägg till ny kampanj -- ENDAST ADMIN -- http://localhost:3000/campaigns
+**POST** lägg till ny kampanj -- ENDAST ADMIN -- http://localhost:3000/campaigns  
 Lägg till ny kampanj med json. 
-Lägg in produkt-id samt paketpris.
+Lägg in produkt-id samt paketpris.  
 {
   "products": ["0EGzWoJ0NqKNvMH9", "JExup8MJ0kTTKHZ4"],
   "packagePrice": 10
 }
 
-**PUT** uppdatera kampanj -- ENDAST ADMIN -- http://localhost:3000/campaigns/:id
-Uppdatera kampanj med hjälp av kampanjens id.
-Lägg in kampanjens id som parameter och produkter samt paketpris som json
+**PUT** uppdatera kampanj -- ENDAST ADMIN -- http://localhost:3000/campaigns/:id  
+Uppdatera kampanj med hjälp av kampanjens id.  
+Lägg in kampanjens id som parameter och produkter samt paketpris som json  
 {
   "products": ["0EGzWoJ0NqKNvMH9", "JExup8MJ0kTTKHZ4"],
   "packagePrice": 10
 }
 
 
-**DELETE** kampanj -- ENDAST ADMIN -- http://localhost:3000/campaigns/:id
-Ta bort en kampanj.
-Använder kampanjens id som parameter.
+**DELETE** kampanj -- ENDAST ADMIN -- http://localhost:3000/campaigns/:id  
+Ta bort en kampanj.  
+Använder kampanjens id som parameter.  
