@@ -1,6 +1,6 @@
-{"title":"Bryggkaffe","desc":"Bryggd på månadens bönor.","price":39,"_id":"uXE4xKTsQhS9La0T"}
-{"title":"Caffè Doppio","desc":"Bryggd på månadens bönor.","price":49,"_id":"Wm2zhztCmMbzu8iB"}
-{"title":"Cappuccino","desc":"Bryggd på månadens bönor.","price":49,"_id":"kfgyl9SBYgISBJaT"}
-{"title":"Latte Macchiato","desc":"Bryggd på månadens bönor.","price":49,"_id":"0HYLen2YTDELVV1t"}
-{"title":"Kaffe Latte","desc":"Bryggd på månadens bönor.","price":54,"_id":"1m8spABchX21Wi2Q"}
-{"title":"Cortado","desc":"Bryggd på månadens bönor.","price":39,"_id":"30RsNQqScU2URMVD"}
+{"title":"Cortado","desc":"Eldig spansk härta-härta.","price":39,"createdAt":"2024-06-12 15:38:30","_id":"0EGzWoJ0NqKNvMH9"}
+{"title":"Latte Macchiato","desc":"Skummande mjölkig, med en touch av espresso.","price":49,"createdAt":"2024-06-12 15:38:30","_id":"CF3LSL6ju449Akr1"}
+{"title":"Kaffe Latte","desc":"Len och värmande god.","price":54,"createdAt":"2024-06-12 15:38:30","_id":"JExup8MJ0kTTKHZ4"}
+{"title":"Caffè Doppio","desc":"En underbar dubbel espresso!","price":49,"createdAt":"2024-06-12 15:38:30","_id":"N837UE5gnHCyRFnI"}
+{"title":"Bryggkaffe","desc":"Bryggt på månadens bönor.","price":39,"createdAt":"2024-06-12 15:38:30","_id":"YIOCCC1wio3GcW7y"}
+{"title":"Cappuccino","desc":"Med härligt skummande mjölk.","price":49,"createdAt":"2024-06-12 15:38:30","_id":"g2LxMk8fiKOW13Ex"}

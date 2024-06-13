@@ -5,41 +5,57 @@ const database = new nedb({ filename: "product.db", autoload: true });
 const defaultProducts = [
   {
     title: "Bryggkaffe",
-    desc: "Bryggd på månadens bönor.",
+    desc: "Bryggt på månadens bönor.",
     price: 39,
   },
   {
     title: "Caffè Doppio",
-    desc: "Bryggd på månadens bönor.",
+    desc: "En underbar dubbel espresso!",
     price: 49,
   },
   {
     title: "Cappuccino",
-    desc: "Bryggd på månadens bönor.",
+    desc: "Med härligt skummande mjölk.",
     price: 49,
   },
   {
     title: "Latte Macchiato",
-    desc: "Bryggd på månadens bönor.",
+    desc: "Skummande mjölkig, med en touch av espresso.",
     price: 49,
   },
   {
     title: "Kaffe Latte",
-    desc: "Bryggd på månadens bönor.",
+    desc: "Len och värmande god.",
     price: 54,
   },
   {
     title: "Cortado",
-    desc: "Bryggd på månadens bönor.",
+    desc: "Eldig spansk härta-härta.",
     price: 39,
   },
 ];
 
+function formatDate(date) {
+  const offset = date.getTimezoneOffset() * 60000;
+  const localDate = new Date(date.getTime() - offset);
+
+  const year = localDate.getFullYear();
+  const month = String(localDate.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(localDate.getUTCDate()).padStart(2, "0");
+  const hours = String(localDate.getUTCHours()).padStart(2, "0");
+  const minutes = String(localDate.getUTCMinutes()).padStart(2, "0");
+  const seconds = String(localDate.getUTCSeconds()).padStart(2, "0");
+
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+
 // Add new menu item
 async function createProduct(product) {
   try {
-    const newProduct = await database.insert(product);
-    console.log(newProduct);
+    const currentTime = formatDate(new Date());
+    const newProduct = { ...product, createdAt: currentTime};
+    const createdProduct = await database.insert(newProduct);
+    console.log(createProduct);
   } catch (error) {
     console.error(error);
   }
@@ -75,9 +91,12 @@ async function updateProduct(id, updatedProduct) {
       throw error;
     }
 
+    const currentTime = formatDate(new Date());
+    const prodToUpdate = { ...updatedProduct, modifiedAt: currentTime };
+
     const result = await database.update(
       { _id: product._id },
-      { $set: updatedProduct }
+      { $set: prodToUpdate }
     );
 
     console.log(`${product.title} has been updated`);

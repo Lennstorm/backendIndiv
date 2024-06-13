@@ -13,7 +13,7 @@ router.post("/", bodyContentBlocker, async (req, res) => {
   const userId = loggedInCustomer._id;
   const cart = getCart(userId); // Fetch the user's specific cart
 
-  const totalPrice = calculateTotalPrice(cart);
+  const totalPrice = await calculateTotalPrice(cart);
 
   console.log();
 
