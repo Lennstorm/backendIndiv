@@ -71,13 +71,13 @@ Nedan test-users email och lösenord som json.
 
 **POST** Addera produkt till inloggad kunds kundvagn mha product _id som route-parameter http://localhost:3000/cart/:productId
 
-**DELETE** ta bort produkt från kundvagn mha product _id som route-parameter http://localhost:3000/cart/:productID
+**DELETE** ta bort produkt från kundvagn med hjälp av product _id som route-parameter http://localhost:3000/cart/:productID
 
 ## ORDER
 
 **POST** ny order. Detta kommer tömma kundvagnen och skicka innehållet till kundens unika orderhistorik-object i orderHistory.db http://localhost:3000/orders
 
-**GET** hämta specifik order mha ordernr för att se leveranstid och övrig info. http://localhost:3000/orders/:orderId
+**GET** hämta specifik order med hjälp av ordernr för att se leveranstid och övrig info. http://localhost:3000/orders/:orderId
 Använd order-ID som returneras i svaret från POST-operationen.
 
 
@@ -89,3 +89,39 @@ Använd order-ID som returneras i svaret från POST-operationen.
 ## ABOUT
 
 **GET** hämta information om företaget http://localhost:3000/about
+
+
+
+## Funktioner tillagda för individuell uppgift:
+/middleware/allowAdmin.js
+/services/campaign.js
+/middleware/validateCampProds.js
+/routes/campaigns.js
+
+/cart.js modifierad för att ta hänsyn till kampanjer.
+Kampanjrouter tillagd i app.js
+
+**Nya anrop:**
+
+**GET** hämta alla kampanjer http://localhost:3000/campaigns
+
+**POST** lägg till ny kampanj -- ENDAST ADMIN -- http://localhost:3000/campaigns
+Lägg till ny kampanj med json. 
+Lägg in produkt-id samt paketpris.
+{
+  "products": ["0EGzWoJ0NqKNvMH9", "JExup8MJ0kTTKHZ4"],
+  "packagePrice": 10
+}
+
+**PUT** uppdatera kampanj -- ENDAST ADMIN -- http://localhost:3000/campaigns/:id
+Uppdatera kampanj med hjälp av kampanjens id.
+Lägg in kampanjens id som parameter och produkter samt paketpris som json
+{
+  "products": ["0EGzWoJ0NqKNvMH9", "JExup8MJ0kTTKHZ4"],
+  "packagePrice": 10
+}
+
+
+**DELETE** kampanj -- ENDAST ADMIN -- http://localhost:3000/campaigns/:id
+Ta bort en kampanj.
+Använder kampanjens id som parameter.

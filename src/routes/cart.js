@@ -2,20 +2,44 @@ import { Router } from "express";
 import { getProductById } from "../services/product.js";
 import { bodyContentBlocker } from "../middleware/bodyContentBlocker.js";
 import { findLoggedInCustomer } from "../utils/findLoggedCustomer.js";
+import { getAllCampaigns } from "../services/campaign.js";
 
 const router = Router({ mergeParams: true });
 const carts = {}; // Object to store carts for each customer
 
 // Calculate total price of items in the cart
-const calculateTotalPrice = (cart) => {
-  let total = cart.reduce((sum, item) => sum + item.price, 0);
-  if (cart.length >= 5) {
-    total *= 0.8;
-  } else if (cart.length >= 3) {
-    total *= 0.9;
+const calculateTotalPrice = async (cart) => {
+  // let total = cart.reduce((sum, item) => sum + item.price, 0);  Den här fanns tidigare när vi hade mängdrabatt. Låter den ligga kvar tills vidare.
+
+  let total = 0;  
+  const campaigns = await getAllCampaigns();
+
+  // Kopia av cart för att inte fucka med originalcart  
+  const cartCopy = [...cart];
+
+  //Gå igenom alla kampanjer för att leta matchningar
+  for (const campaign of campaigns) {
+    const campaignProducts = campaign.products.map(productId => cartCopy.find(item => item._id === productId));
+    if (campaignProducts.every(product => product)) {
+      total += campaign.packagePrice;
+      // se till att kampanjprodukters pris inte läggs till igen
+      campaignProducts.forEach(product => {
+        product.isCampaignProduct = true;
+      });
+    }
   }
+
+  total += cartCopy.reduce((sum, item) => item.isCampaignProduct ? sum : sum + item.price, 0);
+
   return total;
 };
+
+  //   if (cart.length >= 5) {
+  //     total *= 0.8;
+  //   } else if (cart.length >= 3) {
+  //     total *= 0.9;
+  //   }
+  //   return total;
 
 // Find or create cart
 const getCart = (customerId) => {
@@ -37,17 +61,21 @@ router.get("/", bodyContentBlocker, async (req, res, next) => {
     });
   }
 
-  const totalPrice = calculateTotalPrice(cart);
-  console.log(totalPrice);
-
-  res.status(200).json({
-    success: true,
-    status: 200,
-    data: {
-      cart,
-      totalPrice,
-    },
-  });
+  try {
+    const totalPrice = await calculateTotalPrice(cart);
+    console.log(totalPrice);
+  
+    res.status(200).json({
+      success: true,
+      status: 200,
+      data: {
+        cart,
+        totalPrice,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
 });
 
 //POST add product to cart
@@ -69,7 +97,7 @@ router.post("/:productId", bodyContentBlocker, async (req, res, next) => {
     const cart = getCart(customerId);
     cart.push(foundItem);
 
-    const totalPrice = calculateTotalPrice(cart);
+    const totalPrice = await calculateTotalPrice(cart);
 
     res.status(200).json({
       success: true,
@@ -103,7 +131,7 @@ router.delete("/:productId", bodyContentBlocker, async (req, res, next) => {
 
   cart.splice(foundItemIndex, 1);
 
-  const totalPrice = calculateTotalPrice(cart);
+  const totalPrice = await calculateTotalPrice(cart);
 
   res.status(200).json({
     success: true,

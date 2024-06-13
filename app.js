@@ -12,6 +12,7 @@ import ordersRouter from "./src/routes/orders.js";
 import orderHistoryRouter from "./src/routes/orderHistory.js";
 import customerRouter from "./src/routes/customers.js";
 import productRouter from "./src/routes/products.js";
+import campaignRouter from "./src/routes/campaigns.js"; //kampanjrouter tillagd
 
 import {
   logCartParam,
@@ -36,6 +37,7 @@ app.use("/products", productRouter);
 app.use("/cart", logCartParam, cartRouter);
 app.use("/orders", logOrdersParam, ordersRouter);
 app.use("/order-history", logOrderHistory, orderHistoryRouter);
+app.use("/campaigns", campaignRouter); //kampanjrouter tillagd
 
 // Initialize both databases with default data if empty, then start the server
 const PORT = process.env.PORT || 3000;
