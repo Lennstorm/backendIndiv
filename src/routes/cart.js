@@ -2,7 +2,7 @@ import { Router } from "express";
 import { getProductById } from "../services/product.js";
 import { bodyContentBlocker } from "../middleware/bodyContentBlocker.js";
 import { findLoggedInCustomer } from "../utils/findLoggedCustomer.js";
-import { getAllCampaigns } from "../services/campaign.js";
+import { getAllCampaignsService } from "../services/campaign.js";
 
 const router = Router({ mergeParams: true });
 const carts = {}; // Object to store carts for each customer
@@ -12,7 +12,7 @@ const calculateTotalPrice = async (cart) => {
   // let total = cart.reduce((sum, item) => sum + item.price, 0);  Den här fanns tidigare när vi hade mängdrabatt. Låter den ligga kvar tills vidare.
 
   let total = 0;  
-  const campaigns = await getAllCampaigns();
+  const campaigns = await getAllCampaignsService();
 
   // Kopia av cart för att inte fucka med originalcart  
   const cartCopy = [...cart];

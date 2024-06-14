@@ -1,69 +1,53 @@
 import nedb from "nedb-promises";
 
-// skapa kampanjdatabas om den inte redan finns
 const campaignDatabase = new nedb({ filename: "campaigns.db", autoload: true });
 
-// funktion för att skapa ny kampanj
-async function createCampaign(campaign) {
-    try {        
-        const newCampaign = await campaignDatabase.insert({
-            products: campaign.products,
-            packagePrice: campaign.packagePrice,
-        });
-        return newCampaign;
+async function createCampaignService(newCampaign) {
+    try {
+        const createdCampaign = await campaignDatabase.insert(newCampaign);
+        return createdCampaign;
     } catch (error) {
-        console.error(error);
-        throw error;
+        throw new Error("Internt serverfel");
     }
 }
 
-// Funktion för att hämta alla kampanjer
-async function getAllCampaigns() {
+async function getAllCampaignsService() {
     try {
-        return await campaignDatabase.find({});
+        const campaigns = await campaignDatabase.find({});
+        return campaigns;
     } catch (error) {
-        console.error(error);
-        throw error;
+        throw new Error("Internt serverfel");
     }
 }
 
-// Funktion som hämtar specifik kampanj
-async function getCampaignById(id) {
+async function updateCampaignService(id, updatedCampaign) {
     try {
-        return await campaignDatabase.findOne({ _id: id });
+        const campaign = await campaignDatabase.findOne({ _id: id });
+        if (!campaign) {
+            throw new Error("Kampanjen hittas inte!");
+        }
+        await campaignDatabase.update({ _id: id }, { $set: updatedCampaign });
+        return updatedCampaign;
     } catch (error) {
-        console.error(error);
-        throw error;
+        throw new Error(error.message);
     }
 }
 
-// Funktion för att uppdatera kampanj med id
-async function updateCampaign(id, updatedCampaign) {
+async function deleteCampaignService(id) {
     try {
-        return await campaignDatabase.update(
-            { _id: id },
-            { $set: { products: updatedCampaign.products, packagePrice: updatedCampaign.packagePrice } }
-        );
+        const numRemoved = await campaignDatabase.remove({ _id: id });
+        if (numRemoved === 0) {
+            throw new Error("Kampanjen hittas inte!");
+        }
+        return "Kampanjen raderad!";
     } catch (error) {
-        console.error(error);
-        throw error;
-    }
-}
-
-// Funktion för att radera kampanj
-async function deleteCampaign(id) {
-    try {
-        return await campaignDatabase.remove({ _id: id });
-    } catch (error) {
-        console.error(error);
-        throw error;
+        throw new Error("Internt serverfel");
     }
 }
 
 export {
-    createCampaign,
-    getAllCampaigns,
-    getCampaignById,
-    updateCampaign,
-    deleteCampaign,
+    createCampaignService,
+    getAllCampaignsService,
+    updateCampaignService,
+    deleteCampaignService
 };
