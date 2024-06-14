@@ -1,3 +1,5 @@
+//controllers/campaignController.js
+
 import {
     createCampaignService,
     getAllCampaignsService,
