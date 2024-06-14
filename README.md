@@ -136,7 +136,8 @@ POST http://localhost:3000/cart/:productId
 + product_id
 
 **Beskrivning**  
-Ta bort produkt från kundvagn med hjälp av product _id som route-parameter.  
+Ta bort produkt från kundvagn med hjälp av product _id som route-parameter. 
+Returnerar "Produkten du försöker ta bort finns inte i varukorgen" om produkten inte finns i varukorgen.
 
 **URL** 
 DELETE http://localhost:3000/cart/:productID
@@ -206,6 +207,7 @@ GET http://localhost:3000/about
 ## Funktioner tillagda för individuell uppgift:  
 /middleware/allowAdmin.js  
 /services/campaign.js  
+/controllers/campaigncontroller.js
 /middleware/validateCampProds.js  
 /routes/campaigns.js  
 
