@@ -1,4 +1,5 @@
 // routes/customers.js
+
 import { Router } from "express";
 import { validateCustomer } from "../middleware/customersValidation.js";
 import { bodyContentBlocker } from "../middleware/bodyContentBlocker.js";
