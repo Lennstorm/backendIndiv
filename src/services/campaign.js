@@ -1,3 +1,5 @@
+//services/campaign.js
+
 import nedb from "nedb-promises";
 
 const campaignDatabase = new nedb({ filename: "campaigns.db", autoload: true });
@@ -39,7 +41,7 @@ async function deleteCampaignService(id) {
         if (numRemoved === 0) {
             throw new Error("Kampanjen hittas inte!");
         }
-        return "Kampanjen raderad!";
+        return "Kampanjen raderad.";
     } catch (error) {
         throw new Error("Internt serverfel");
     }
